@@ -5,21 +5,19 @@
   {% if collection.products.size > 0 %}
     <div class="products-grid">
       {% for product in collection.products limit: section.settings.products_per_row %}
-        <div class="product-card" data-product-id="{{ product.id }}">
+        <div class="product-card" id="{{ product.title | handle }}" data-product-id="{{ product.id }}">
           <a href="{{ product.url }}">
             <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
             <h3>{{ product.title }}</h3>
             <p class="product-price">{{ product.price | money }}</p>
           </a>
-          <button class="add-to-cart-btn" id="{{product.id}}" data-product-id="{{ product.id }}">Add to Cart</button>
+          <button class="add-to-cart-btn" id="{{ product.title | handle }}" data-product-id="{{ product.id }}">Add to Cart</button>
           {% section 'featured-product' %}
           {% comment %} variant {% endcomment %}
         </div>
       {% endfor %}
     </div>
-    {%  javascript  %} 
-       var products_number =  {{ collection.all_products_count }};
-       console.log(products_number);
+    
      {% endjavascript %}
     <button id="load-more-btn" class="load-more">Load More</button>
   {% else %}
