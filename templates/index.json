@@ -1,5 +1,21 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
+    "collection_products_with_ajax_V9NDna": {
+      "type": "collection-products-with-ajax",
+      "settings": {
+        "collection": "mobile",
+        "products_per_row": 3
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -30,6 +46,7 @@
     }
   },
   "order": [
+    "collection_products_with_ajax_V9NDna",
     "featured_collection"
   ]
 }
