@@ -11,7 +11,7 @@
             <h3>{{ product.title }}</h3>
             <p class="product-price">{{ product.price | money }}</p>
           </a>
-          <button class="add-to-cart-btn" id="{{variant.product}}" data-product-id="{{ product.id }}">Add to Cart</button>
+          <button id="{{variant.product}}" data-product-id="{{ product.id }}">Add to Cart</button>
           {% comment %} variant {% endcomment %}
         </div>
       {% endfor %}
