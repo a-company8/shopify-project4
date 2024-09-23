@@ -15,7 +15,7 @@
         </div>
       {% endfor %}
     </div>
-    <button id="load-more-btn" class="load-more">Load More</button>
+    <button id="load-more-btn" class="load-more" onclick="myFunction({{product.title | handle}})">Load More</button>
   {% else %}
     <p>No products found in the selected collection.</p>
   {% endif %}
@@ -47,3 +47,12 @@
   ]
 }
 {% endschema %}
+
+<script>
+    function myFunction(gettingLink) {
+        fetch(window.Shopify.routes.root + 'products/'+ gettingLink+'js')
+  .then(response => response.json())
+  .then(product => alert('The title of this product is ' + product.title));
+
+    }
+</script>
