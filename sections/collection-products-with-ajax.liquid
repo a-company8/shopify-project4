@@ -17,6 +17,10 @@
         </div>
       {% endfor %}
     </div>
+    {%  javascript  %} 
+       var products_number =  {{ collection.all_products_count }};
+       console.log(products_number);
+     {% endjavascript %}
     <button id="load-more-btn" class="load-more">Load More</button>
   {% else %}
     <p>No products found in the selected collection.</p>
