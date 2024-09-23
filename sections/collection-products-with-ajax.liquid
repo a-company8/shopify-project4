@@ -12,12 +12,9 @@
             <p class="product-price">{{ product.price | money }}</p>
           </a>
           <button class="add-to-cart-btn" id="{{ product.title | handle }}" data-product-id="{{ product.id }}">Add to Cart!!</button>
-          
         </div>
       {% endfor %}
     </div>
-    
-     {% endjavascript %}
     <button id="load-more-btn" class="load-more">Load More</button>
   {% else %}
     <p>No products found in the selected collection.</p>
