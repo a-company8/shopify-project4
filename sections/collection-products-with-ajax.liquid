@@ -1,0 +1,49 @@
+<div class="collection-products-section">
+  {% assign collection_handle = section.settings.collection %}
+  {% assign collection = collections[collection_handle] %}
+  
+  {% if collection.products.size > 0 %}
+    <div class="products-grid">
+      {% for product in collection.products limit: section.settings.products_per_row %}
+        <div class="product-card" data-product-id="{{ product.id }}">
+          <a href="{{ product.url }}">
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+            <h3>{{ product.title }}</h3>
+            <p class="product-price">{{ product.price | money }}</p>
+          </a>
+          <button class="add-to-cart-btn" data-product-id="{{ product.id }}">Add to Cart</button>
+        </div>
+      {% endfor %}
+    </div>
+    <button id="load-more-btn" class="load-more">Load More</button>
+  {% else %}
+    <p>No products found in the selected collection.</p>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Collection Products with AJAX",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Choose a collection"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row",
+      "label": "Products per row",
+      "default": 4,
+      "min": 2,
+      "max": 6
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Products with AJAX",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}
