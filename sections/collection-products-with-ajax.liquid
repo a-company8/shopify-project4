@@ -12,7 +12,7 @@
             <p class="product-price">{{ product.price | money }}</p>
           </a>
           <button class="add-to-cart-btn" id="{{ product.title | handle }}" data-product-id="{{ product.id }}">Add to Cart</button>
-          {% section 'featured-product' %}
+          
           {% comment %} variant {% endcomment %}
         </div>
       {% endfor %}
