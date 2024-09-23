@@ -3611,3 +3611,28 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.product-card {
+  border: 1px solid #eee;
+  padding: 15px;
+  text-align: center;
+}
+.product-price {
+  color: green;
+  font-weight: bold;
+}
+.add-to-cart-btn {
+  display: none;
+}
+.product-card:hover .add-to-cart-btn {
+  display: block;
+}
+.product-card:hover .product-price {
+  display: none;
+}
+
