@@ -7,15 +7,15 @@
       {% for product in collection.products limit: section.settings.products_per_row %}
         <div class="product-card" id="{{ product.title | handle }}" data-product-id="{{ product.id }}">
           <a href="{{ product.url }}">
-            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" >
             <h3>{{ product.title }}</h3>
             <p class="product-price">{{ product.price | money }}</p>
           </a>
-          <button class="add-to-cart-btn" id="{{ product.title | handle }}" data-product-id="{{ product.id }}">Add to Cart!!</button>
+          <button class="add-to-cart-btn" id="{{ product.title | handle }}" data-product-id="{{ product.id }}" onclick="myFunction({{product.title | handle}})">Add to Cart!!</button>
         </div>
       {% endfor %}
     </div>
-    <button id="load-more-btn" class="load-more" onclick="myFunction({{product.title | handle}})">Load More</button>
+    <button id="load-more-btn" class="load-more">Load More</button>
   {% else %}
     <p>No products found in the selected collection.</p>
   {% endif %}
