@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     body: JSON.stringify(formData)
                     })
                     .then(response => {
-                       const cartCounter = document.querySelector('.cart-counter');  // Assuming this is the class of your cart counter
+                       const cartCounter = document.querySelector('.cart-count-bubble');  // Assuming this is the class of your cart counter
                         if (cartCounter) {   cartCounter.textContent = cart.item_count;
                         }// Update the counter with the total items in the cart
                     return response.json();
