@@ -9,7 +9,6 @@
         <p class="product-price">{{ product.price | money }}</p>
       </a>
       <button class="add-to-cart-btn" data-product-id="{{ product.id }}">Add to Cart</button>
-      {% comment %} <button class="add-to-cart-btn" data-product-id="{{ product.id }}" onclick="myFunction('{{product.title | handle}}')" >Add to Cart</button> {% endcomment %}
     </div>
   {% endfor %}
 {% endpaginate %}
