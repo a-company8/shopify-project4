@@ -17,13 +17,12 @@
               <h3>{{ product.title }}</h3>
               <p class="product-price">{{ product.price | money }}</p>
             </a>
-            <form
-              action="/cart/add"
-              id="product_form_{{product.id}}"
-              class="shopify-product-form"
-              method="post">
-              <button class="add-to-cart-btn" data-product-id="{{ product.title | handle}}">Add to Cart</button>
-            </form>
+            {% render 'buy-buttons'
+              , block: block
+              , product: product
+              , product_form_id: product_form_id
+              , section_id: section.id
+              , show_pickup_availability: true %}
           </div>
         {% endfor %}
       </div>
