@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
   
           // Append the new products to the product grid
           while (newProducts.firstChild) {
-            moreButtonProducts.appendChild(newProducts.firstChild);
+            productGrid.append(newProducts.firstChild);
+            
           }
         })
         .catch((error) => console.error("Error loading more products:", error));
