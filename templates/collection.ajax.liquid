@@ -8,9 +8,9 @@
         <img
           src="{{ product.featured_image}}"
           alt="{{ product.title }}"
-          width="{{product.image.options_with_values}}"
-          height="{{product.image.options_with_values}}">
-        <h3>{{ product.selected_variant.id }}</h3>
+          width=""
+          height="">
+        <h3>{{ product.title }}</h3>
         <p class="product-price">{{ product.price | money }}</p>
       </a>
       {% render 'buy-buttons'
