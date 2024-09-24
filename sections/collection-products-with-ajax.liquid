@@ -3,7 +3,8 @@
   {% assign collection = collections[collection_handle] %}
   
   {% if collection.products.size > 0 %}
-    <h1>{{collection.all_products_count}}</h1>
+    <h1>marziyeh</h1>
+    <h2>{{collection.all_products_count}}</h2>
     <div class="products-grid">
       {% for product in collection.products limit: section.settings.products_per_row %}
         <div class="product-card" id="{{ product.title | handle }}" data-product-id="{{ product.id }}">
