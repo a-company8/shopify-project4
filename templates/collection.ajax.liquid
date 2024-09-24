@@ -1,7 +1,7 @@
 {% layout none %}
 <!-- Products loaded via AJAX -->
 {% paginate collection.products by 4 %}  <!-- You can adjust the limit here if needed -->
-  {% for product in collection.products %}
+  {% for product in collection.products limit: section.settings.products_per_row %}
     <div class="product-card" data-product-id="{{ product.id }}">
       <a href="{{ product.url }}">
         <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
