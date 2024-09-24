@@ -1,18 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let currentPage = 1;
+    let currentPage = 1;  // Tracks the current page number
     const loadMoreBtn = document.getElementById("load-more-btn");
     const productGrid = document.querySelector(".products-grid");
     const productSection = document.querySelector(".custom-collection-section");
   
-    // Get the collection handle from the data attribute
+    // Get the collection handle and products per row from the data attributes
     const collectionHandle = productSection.getAttribute("data-collection-handle");
+    const productsPerRow = productSection.getAttribute("data-products-per-row");  // Read products per row from data attribute
   
     // Load more products when "Load More" button is clicked
     loadMoreBtn.addEventListener("click", function () {
-      currentPage++; // Increment the page number
+      currentPage++;  // Increment the page number
   
       // AJAX request to fetch more products
-      fetch(`/collections/${collectionHandle}?view=ajax&page=${currentPage}`)
+      fetch(`/collections/${collectionHandle}?view=ajax&page=${currentPage}&limit=${productsPerRow}`)
         .then((response) => response.text())
         .then((html) => {
           const newProducts = document.createElement("div");
@@ -26,8 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch((error) => console.error("Error loading more products:", error));
     });
   });
+  
 
-
+  
 
 //   add to cart functions
 function myFunction(productTitle) {
@@ -57,3 +59,5 @@ function myFunction(productTitle) {
       
    }
   
+
+   

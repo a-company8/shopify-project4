@@ -1,13 +1,14 @@
-{%layout none%}
-{% paginate collection.products by 4 %}
-  {% for product in collection.products offset: continue %}
+{% layout none %}
+{% paginate collection.products by section.settings.products_per_row %}
+    {% for product in collection.products %}
   <div class="product-card" data-product-id="{{ product.id }}">
     <a href="{{ product.url }}">
       <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
       <h3>{{ product.title }}</h3>
       <p class="product-price">{{ product.price | money }}</p>
     </a>
-    <button class="add-to-cart-btn" data-product-id="{{ product.id }}">Add to Cart</button>
+    <button class="add-to-cart-btn" data-product-id="{{ product.id }}" onclick="myFunction('{{product.title | handle}}')" >Add to Cart</button>
   </div>
   {% endfor %}
 {% endpaginate %}
+
