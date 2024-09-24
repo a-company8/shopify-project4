@@ -88,33 +88,33 @@ document.addEventListener("DOMContentLoaded", function () {
   
 
 
-// //   add to cart functions
-// function myFunction(productTitle) {
+//   add to cart functions
+function myFunction(productTitle) {
 
-//     const productId = fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js')
-//    .then(response => response.json()).then(response =>{
-//      let formData = {
-//      'items': [{
-//      'id': response.variants[0].id,
-//      'quantity': 1
-//       }]
-//      };
-//      fetch(window.Shopify.routes.root + 'cart/add.json', {
-//      method: 'POST',
-//      headers: {
-//      'Content-Type': 'application/json'
-//      },
-//      body: JSON.stringify(formData)
-//      })
-//      .then(response => {
-//      return response.json();
-//      })
-//      .catch((error) => {
-//      console.error('Error:', error);
-//      });
-//    });
+    const productId = fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js')
+   .then(response => response.json()).then(response =>{
+     let formData = {
+     'items': [{
+     'id': response.variants[0].id,
+     'quantity': 1
+      }]
+     };
+     fetch(window.Shopify.routes.root + 'cart/add.json', {
+     method: 'POST',
+     headers: {
+     'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(formData)
+     })
+     .then(response => {
+     return response.json();
+     })
+     .catch((error) => {
+     console.error('Error:', error);
+     });
+   });
       
-//    }
+   }
   
 
    
