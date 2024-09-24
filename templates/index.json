@@ -60,7 +60,7 @@
       "type": "collection-products-with-ajax",
       "settings": {
         "collection": "mobile",
-        "products_per_row": 3
+        "products_per_row": 4
       }
     },
     "contact_form_mxNnaD": {
