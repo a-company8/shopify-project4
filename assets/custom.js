@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();  // Prevent the default button behavior
   
         const productId = this.getAttribute('data-product-id');
-  
+        console.log(productId);
         // Send an AJAX request to add the product to the cart
         fetch('/cart/add.js', {
           method: 'POST',
