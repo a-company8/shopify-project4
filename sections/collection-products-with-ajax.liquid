@@ -9,13 +9,11 @@
         {% for product in collection.products limit: section.settings.products_per_row %}
           <div class="product-card" data-product-id="{{ product.id }}">
             <a href="{{ product.url }}">
-              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+              <img src="{{ product.featured_image | image_url: width: 240, height: 240 }}" alt="{{ product.title }}" width="240px" height="240px">
               <h3>{{ product.title }}</h3>
               <p class="product-price">{{ product.price | money }}</p>
             </a>
             <button class="add-to-cart-btn" data-product-id="{{ product.title | handle }}">Add to Cart</button>
-            <h2>{{ variant.id }}</h2>
-
           </div>
         {% endfor %}
       </div>
@@ -36,6 +34,7 @@
         "id": "collection",
         "label": "Choose a collection"
       }, {
+        "step": 1,
         "type": "range",
         "id": "products_per_row",
         "label": "Products per row",

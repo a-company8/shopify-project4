@@ -4,37 +4,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const productGrid = document.querySelector(".products-grid");
     const productSection = document.querySelector(".custom-collection-section");
     const moreButtonProducts = document.querySelector(".add-more-products");
-  
     // Get the collection handle and products per row from the data attributes
     const collectionHandle = productSection.getAttribute("data-collection-handle");
     const productsPerRow = productSection.getAttribute("data-products-per-row");  // Read products per row from data attribute
-  
     // Load more products when "Load More" button is clicked
     loadMoreBtn.addEventListener("click", function () {
       currentPage++;  // Increment the page number
-  
       // AJAX request to fetch more products
       fetch(`/collections/${collectionHandle}?view=ajax&page=${currentPage}&limit=${productsPerRow}`)
         .then((response) => response.text())
         .then((html) => {
-        
           const newProducts = document.createElement("div");
 
-          
           newProducts.innerHTML = html;
-  
+
           // Append the new products to the product grid
           while (newProducts.firstChild) {
             productGrid.append(newProducts.firstChild);
-            
-          }
+                      }
         })
         .catch((error) => console.error("Error loading more products:", error));
     });
   });
-  
 
-// //   //add to cart function using Ajax
+
+// //   //addc to cart function using Ajax
 // //   //does it work?
 
 //   document.addEventListener('DOMContentLoaded', function() {
