@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
       event.preventDefault();
       const productId = this.getAttribute('data-product-id');
       console.log(productId);
-      fetch(window.Shopify.routes.root + 'products/google-pixel-9.js')
+      fetch(window.Shopify.routes.root + 'products/'+productId+'.js')
   .then(response => response.json())
   .then(product => console.log(product.variants[0].id) );
     })
