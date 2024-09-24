@@ -7,7 +7,7 @@
     <div class="custom-collection-section" data-collection-handle="{{ section.settings.collection }}">
       <div class="products-grid">
         {% for product in collection.products limit: section.settings.products_per_row %}
-          <div class="product-card" data-product-id="{{ product.id }}">
+          <div class="product-card" data-product-id="{{ line_item.product_id}}">
             <a href="{{ product.url }}">
               <img
                 src="{{ product.featured_image | image_url: width: 240, height: 240 }}"
@@ -24,7 +24,6 @@
               , section_id: section.id
               , show_pickup_availability: true %}
           </div>
-          <h2>{{ line_item.product_id }}</h2>
         {% endfor %}
       </div>
       <button id="load-more-btn">Load More</button>
