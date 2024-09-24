@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
 
   //add to cart function using Ajax
+  //does it work?
 
   document.addEventListener('DOMContentLoaded', function() {
     // Listen for clicks on any 'Add to Cart' buttons
