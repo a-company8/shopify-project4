@@ -1,56 +1,54 @@
 <div class="collection-products-section">
   {% assign collection_handle = section.settings.collection %}
   {% assign collection = collections[collection_handle] %}
-  
-  {% if collection.products.size > 0 %}
-    <!-- Custom Collection Section -->
-<div class="custom-collection-section" data-collection-handle="{{ section.settings.collection }}">
-    <div class="products-grid">
-        {% for product in collection.products limit: section.settings.products_per_row %}
-        <div class="product-card" data-product-id="{{ product.id }}">
-          <a href="{{ product.url }}">
-            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-            <h3>{{ product.title }}</h3>
-            <p class="product-price">{{ product.price | money }}</p>
-          </a>
-          <button class="add-to-cart-btn" data-product-id="{{ variant.id }}">Add to Cart</button>
-          <h2>{{variant.id}}</h2>
 
-        </div>
-      {% endfor %}
+    {% if collection.products.size > 0 %}
+    <!-- Custom Collection Section -->
+    <div class="custom-collection-section" data-collection-handle="{{ section.settings.collection }}">
+      <div class="products-grid">
+        {% for product in collection.products limit: section.settings.products_per_row %}
+          <div class="product-card" data-product-id="{{ product.id }}">
+            <a href="{{ product.url }}">
+              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+              <h3>{{ product.title }}</h3>
+              <p class="product-price">{{ product.price | money }}</p>
+            </a>
+            <button class="add-to-cart-btn" data-product-id="{{ product.title | handle }}">Add to Cart</button>
+            <h2>{{ variant.id }}</h2>
+
+          </div>
+        {% endfor %}
+      </div>
+      <button id="load-more-btn">Load More</button>
     </div>
-    <button id="load-more-btn">Load More</button>
-  </div>
   {% else %}
     <p>No products found in the selected collection.</p>
   {% endif %}
-    </div>
+</div>
 
-    
 
 {% schema %}
-{
-  "name": "Collection with AJAX",
-  "settings": [
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Choose a collection"
-    },
-    {
-      "type": "range",
-      "id": "products_per_row",
-      "label": "Products per row",
-      "default": 4,
-      "min": 2,
-      "max": 6
-    }
-  ],
-  "presets": [
-    {
-      "name": "Collection with AJAX",
-      "category": "Products"
-    }
-  ]
-}
+  {
+    "name": "Collection with AJAX",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Choose a collection"
+      }, {
+        "type": "range",
+        "id": "products_per_row",
+        "label": "Products per row",
+        "default": 4,
+        "min": 2,
+        "max": 6
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection with AJAX",
+        "category": "Products"
+      }
+    ]
+  }
 {% endschema %}
