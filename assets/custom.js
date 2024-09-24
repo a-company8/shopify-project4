@@ -36,9 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     button.addEventListener('click', function(event) {
       event.preventDefault();
       const productId = this.getAttribute('data-product-id');
-      fetch(window.Shopify.routes.root + 'products/'+productId+'.js')
-  .then(response => response.json())
-  .then(product => console.log(product.variants[0].id) );
+      console.log(productId);
     })
   })
 })
