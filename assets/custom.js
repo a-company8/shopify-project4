@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       currentPage++;  // Increment the page number
   
       // AJAX request to fetch more products
-      fetch(`/collections/${collectionHandle}?view=ajax&page=${currentPage}&limit=${productsPerRow}`)
+      fetch(`/collections/${collectionHandle}?view=ajax&page=${currentPage}&limit=4`)
         .then((response) => response.text())
         .then((html) => {
         
