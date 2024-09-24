@@ -6,7 +6,7 @@
     <!-- Custom Collection Section -->
     <div class="custom-collection-section" data-collection-handle="{{ section.settings.collection }}" data-products-per-row="{{ section.settings.products_per_row }}">
     <div class="products-grid" style="grid-template-columns: repeat({{ section.settings.products_per_row }}, 1fr);">
-        {% for product in collection.products limit: section.settings.products_per_row %}
+        {% for product in collection.products  %}
             <div class="product-card" data-product-id="{{ product.id }}">
               <a href="{{ product.url }}">
                 <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
