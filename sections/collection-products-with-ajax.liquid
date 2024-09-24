@@ -52,7 +52,7 @@
 <script>
     function myFunction(productTitle) {
         fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js')
-  .then(response => response.json());
+  .then(response => response.json()).then(response => response.id);
 
     }
 </script>
