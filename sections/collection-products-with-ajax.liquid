@@ -11,7 +11,10 @@
             <h3>{{ product.title }}</h3>
             <p class="product-price">{{ product.price | money }}</p>
           </a>
-          <button class="add-to-cart-btn" data-product-id="{{ product.id }}" onclick="myFunction()" >Add to Cart</button>
+          {% javascript  %} 
+                var productId = 
+          {% endjavascript %}
+          <button class="add-to-cart-btn" data-product-id="{{ product.id }}" onclick="myFunction({{product.title | handle}})" >Add to Cart</button>
           <h2>amin</h2>
         </div>
       {% endfor %}
@@ -50,8 +53,8 @@
 {% endschema %}
 
 <script>
-    function myFunction() {
-     console.log("Hello");
+    function myFunction(productTitle) {
+     console.log(productTitle);
 
     }
 </script>
