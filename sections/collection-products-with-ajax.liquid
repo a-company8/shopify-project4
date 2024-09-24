@@ -51,10 +51,9 @@
 
 <script>
     function myFunction(productTitle) {
-
         fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js')
   .then(response => response.json()).then(response => {
-     var productId = response.variants.id;
+     productId = response.variants;
      console.log(productId);
   });
 
