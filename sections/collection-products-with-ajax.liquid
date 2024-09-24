@@ -51,11 +51,36 @@
 
 <script>
     function myFunction(productTitle) {
-        fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js')
-  .then(response => response.json()).then(response => {
-    var productId = Object.values(response.variants);
-     console.log(productId);
-  });
 
-    }
+   const productId = fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js')
+  .then(response => response.json()).then(response =>{
+    let formData = {
+    'items': [{
+    'id': response.variants[0].id,
+    'quantity': 1
+     }]
+    };
+    fetch(window.Shopify.routes.root + 'cart/add.json', {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+    })
+    .then(response => {
+    return response.json();
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+    });
+  });
+     
+  }
+
+
+
+    
+
+
+    
 </script>
