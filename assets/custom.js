@@ -66,7 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
                   });
               }
   )
-  
+  })})
+ 
 
 //   document.addEventListener('DOMContentLoaded', function() {
 //     // Listen for clicks on any 'Add to Cart' buttons
