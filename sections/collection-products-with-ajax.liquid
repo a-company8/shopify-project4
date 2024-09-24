@@ -79,12 +79,10 @@
      
   }
 
-  <script>
 
   function loadMoreBtn(productTitle) {
     fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js').then(response => response.json()).then(product => console.log(product.title));
   }
-</script>
 
 
     
