@@ -54,7 +54,7 @@
         fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js')
   .then(response => response.json()).then(response => {
      productId = response.variants;
-     console.log(productId);
+     console.log(productId.id);
   });
 
   
