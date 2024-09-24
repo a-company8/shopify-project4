@@ -1,6 +1,6 @@
 {%layout none%}
 {% paginate collection.products by 4 %}
-  {% for product in collection.products %}
+  {% for product in collection.products offset: continue %}
   <div class="product-card" data-product-id="{{ product.id }}">
     <a href="{{ product.url }}">
       <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
