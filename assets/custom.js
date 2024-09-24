@@ -49,8 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   })
 
-// //   //addc to cart function using Ajax
-// //   //does it work?
+//alternative way with using Ajax
 
 // document.addEventListener('DOMContentLoaded', function () {
 //   document.querySelectorAll('.add-to-cart-btn').forEach(function(button){
