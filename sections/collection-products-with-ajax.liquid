@@ -15,6 +15,9 @@
               </a>
               <button class="add-to-cart-btn" data-product-id="{{ product.id }}" onclick="myFunction('{{product.title | handle}}')" >Add to Cart</button>
             </div>
+            <div class="add-more-products" style="grid-template-columns: repeat({{ section.settings.products_per_row }}, 1fr);">
+                
+            </div>
      {% endfor %}    
  </div>
     {% endif %}

@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loadMoreBtn = document.getElementById("load-more-btn");
     const productGrid = document.querySelector(".products-grid");
     const productSection = document.querySelector(".custom-collection-section");
+    const moreButtonProducts = document.querySelector(".add-more-products");
   
     // Get the collection handle and products per row from the data attributes
     const collectionHandle = productSection.getAttribute("data-collection-handle");
@@ -24,8 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
           // Append the new products to the product grid
           while (newProducts.firstChild) {
-            const newProductp = document.createElement("br");
-            productGrid.appendChild(newProducts.firstChild);
+            moreButtonProducts.appendChild(newProducts.firstChild);
           }
         })
         .catch((error) => console.error("Error loading more products:", error));
