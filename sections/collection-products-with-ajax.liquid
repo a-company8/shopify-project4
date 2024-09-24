@@ -11,7 +11,7 @@
             <h3>{{ product.title }}</h3>
             <p class="product-price">{{ product.price | money }}</p>
           </a>
-          <button class="add-to-cart-btn" id="{{ product.title | handle }}" data-product-id="{{ product.id }}" onclick="myFunction('{{product.title | handle}}')">Add to Cart!!</button>
+          <button class="add-to-cart-btn" id="{{ product.title | handle }}" data-product-id="{{ product.id }}" onclick="myFunction('products/'+{{product.title | handle}})">Add to Cart!!</button>
         </div>
       {% endfor %}
     </div>
@@ -50,7 +50,7 @@
 
 <script>
     function myFunction(gettingLink) {
-     console.log("hello");
+     console.log(gettingLink);
 
     }
 </script>
