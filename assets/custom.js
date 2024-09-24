@@ -29,24 +29,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   //second option for adding to card
-  const addToCartForms = document.querySelectorAll('form[action= "/cart/add"]');
+  // const addToCartForms = document.querySelectorAll('form[action= "/cart/add"]');
 
-  addToCartForms.forEach((form) => {
-    form.addEventListener("submit", async (event)=> {
-      event.preventDefault();
+  // addToCartForms.forEach((form) => {
+  //   form.addEventListener("submit", async (event)=> {
+  //     event.preventDefault();
 
-      //submit form with ajax
-      await fetch("cart/add", {
-        method: "post",
-        body: new FormData(form),
-      });
+  //     //submit form with ajax
+  //     await fetch("cart/add", {
+  //       method: "post",
+  //       body: new FormData(form),
+  //     });
 
-      //Get new Cart object
-      const res = await fetch("/cart.json");
-      const cart = await res.json();
+  //     //Get new Cart object
+  //     const res = await fetch("/cart.json");
+  //     const cart = await res.json();
+  //     console.log(cart);
       
-    });
-  })
+  //   });
+  // })
 
 // //   //addc to cart function using Ajax
 // //   //does it work?
