@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(cart => {
           // Find the cart counter element and update its text with the item count
-          const cartCounter = document.querySelector('.cart-counter');  // Assuming this is the class of your cart counter
+          const cartCounter = document.querySelector('.cart-count-bubble');  
           if (cartCounter) {
             cartCounter.textContent = cart.item_count;  // Update the counter with the total items in the cart
           }
@@ -88,33 +88,38 @@ document.addEventListener("DOMContentLoaded", function () {
   
 
 
-// //   add to cart functions
-// function myFunction(productTitle) {
+//   add to cart functions
+document.addEventListener('DOMContentLoaded', function() {
 
-//     const productId = fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js')
-//    .then(response => response.json()).then(response =>{
-//      let formData = {
-//      'items': [{
-//      'id': response.variants[0].id,
-//      'quantity': 1
-//       }]
-//      };
-//      fetch(window.Shopify.routes.root + 'cart/add.json', {
-//      method: 'POST',
-//      headers: {
-//      'Content-Type': 'application/json'
-//      },
-//      body: JSON.stringify(formData)
-//      })
-//      .then(response => {
-//      return response.json();
-//      })
-//      .catch((error) => {
-//      console.error('Error:', error);
-//      });
-//    });
+    const productId = fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js')
+   .then(response => response.json()).then(response =>{
+     let formData = {
+     'items': [{
+     'id': response.variants[0].id,
+     'quantity': 1
+      }]
+     };
+     fetch(window.Shopify.routes.root + 'cart/add.json', {
+     method: 'POST',
+     headers: {
+     'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(formData)
+     })
+     .then(response => {
+        const cartCounter = document.querySelector('.cart-counter');  // Assuming this is the class of your cart counter
+          if (cartCounter) {
+            cartCounter.textContent = cart.item_count;  
+          }// Update the counter with the total items in the cart
+     return response.json();
+     })
+     .catch((error) => {
+     console.error('Error:', error);
+     });
+     
+   });
       
-//    }
+   })
   
 
    
