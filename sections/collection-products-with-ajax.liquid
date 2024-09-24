@@ -8,6 +8,9 @@
     <div class="products-grid">
       {% for product in collection.products limit: section.settings.products_per_row %}
         <div class="product-card" id="{{ product.title | handle }}" data-product-id="{{ product.id }}">
+            {%  javascript  %} 
+
+            {% endjavascript %}
           <a href="{{ product.url }}">
             <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" >
             <h3>{{ product.title }}</h3>
@@ -50,43 +53,3 @@
   ]
 }
 {% endschema %}
-
-<script>
-    function myFunction(productTitle) {
-
-   const productId = fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js')
-  .then(response => response.json()).then(response =>{
-    let formData = {
-    'items': [{
-    'id': response.variants[0].id,
-    'quantity': 1
-     }]
-    };
-    fetch(window.Shopify.routes.root + 'cart/add.json', {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-    })
-    .then(response => {
-    return response.json();
-    })
-    .catch((error) => {
-    console.error('Error:', error);
-    });
-  });
-     
-  }
-
-
-  function loadMoreBtn(productTitle) {
-    fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js').then(response => response.json()).then(product => console.log(product.title));
-  }
-
-
-    
-
-
-    
-</script>
