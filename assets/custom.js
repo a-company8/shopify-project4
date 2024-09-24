@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //   //does it work?
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.add-to-card-btn').forEach(function(button){
+  document.querySelectorAll('.add-to-cart-btn').forEach(function(button){
     button.addEventListener('click', function(event) {
       event.preventDefault();
       const productId = this.getAttribute('data-product-id');
