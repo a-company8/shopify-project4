@@ -16,11 +16,15 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch(`/collections/${collectionHandle}?view=ajax&page=${currentPage}&limit=${productsPerRow}`)
         .then((response) => response.text())
         .then((html) => {
+        
           const newProducts = document.createElement("div");
+
+          
           newProducts.innerHTML = html;
   
           // Append the new products to the product grid
           while (newProducts.firstChild) {
+            const newProductp = document.createElement("br");
             productGrid.appendChild(newProducts.firstChild);
           }
         })
