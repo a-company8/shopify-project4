@@ -9,11 +9,7 @@
         {% for product in collection.products limit: section.settings.products_per_row %}
           <div class="product-card" data-product-id="{{ product.id }}">
             <a href="{{ product.url }}">
-              <img
-                src="{{ product.featured_image | image_url: width: 240, height: 240 }}"
-                alt="{{ product.title }}"
-                width="240px"
-                height="240px">
+              <img src="{{ product.featured_image" alt="{{ product.title }}">
               <h3>{{ product.title }}</h3>
               <p class="product-price">{{ product.price | money }}</p>
             </a>
