@@ -39,10 +39,34 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log(productId);
       fetch(window.Shopify.routes.root + 'products/'+productId+'.js')
   .then(response => response.json())
-  .then(product => console.log(product.variants[0].id) );
-    })
-  })
-})
+  .then(product =>{
+
+    let formData = {
+      'items': [{
+        'id': 'product.variants[0].id',
+        'quantity': 1
+      }]
+    }
+    fetch(window.Shopify.routes.root + 'cart/add.json', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                    })
+                    .then(response => {
+                       const cartCounter = document.querySelector('.cart-counter');  // Assuming this is the class of your cart counter
+                        if (cartCounter) {   cartCounter.textContent = cart.item_count;
+                        }// Update the counter with the total items in the cart
+                    return response.json();
+                    })
+                    .catch((error) => {
+                    console.error('Error:', error);
+                    });
+                  });
+              }
+  )
+  
 
 //   document.addEventListener('DOMContentLoaded', function() {
 //     // Listen for clicks on any 'Add to Cart' buttons
