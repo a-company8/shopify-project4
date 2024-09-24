@@ -5,11 +5,7 @@
   {% for product in collection.products %}
     <div class="product-card" data-product-id="{{ product.id }}">
       <a href="{{ product.url }}">
-        <img
-          src="{{ product.featured_image}}"
-          alt="{{ product.title }}"
-          width=""
-          height="">
+        <img src="{{ product.featured_image}}" alt="{{ product.title }}">
         <h3>{{ product.title }}</h3>
         <p class="product-price">{{ product.price | money }}</p>
       </a>
