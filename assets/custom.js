@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fetch(`/collections/${collectionHandle}?view=ajax&page=${currentPage}`)
         .then((response) => response.text())
         .then((html) => {
-          const newProducts = document.createElement("div");
+          const newProducts = document.createElement('div class="amin-company"');
           newProducts.innerHTML = html;
   
           // Append the new products to the product grid
