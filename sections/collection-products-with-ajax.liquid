@@ -11,7 +11,7 @@
             <h3>{{ product.title }}</h3>
             <p class="product-price">{{ product.price | money }}</p>
           </a>
-          <button class="add-to-cart-btn" data-product-id="{{ product.id }}" onclick="myFunction('{{product.title | handle}}')" >Add to Cart</button>
+          <button class="add-to-cart-btn" data-product-id="{{ product.id }}" onclick="myFunction()" >Add to Cart</button>
           <h2>soroush</h2>
         </div>
       {% endfor %}
@@ -50,10 +50,29 @@
 {% endschema %}
 
 <script>
-    function myFunction(productTitle) {
-        fetch(window.Shopify.routes.root + 'products/'+productTitle+'.js')
-  .then(response => response.json())
-  .then(product => console.log(product));
-
+    function myFunction() {
+        var variant = $("#variants_1").val(); 
+      console.log(variant);
+     var items = [{ quantity: 1, id: variant }];
+   $.ajax({
+       type: "POST",
+       url: '/cart/add.json',
+       data: { items: items },
+       success: function(data) {
+              console.log('success');
+           },
+       dataType: 'application/json'
+    });
+    // Now I will do a get to show the itens from cart
+   setTimeout(function() {
+   jQuery.getJSON('/cart.js', function(cart) {
+        let cartData = cart.items;
+        document.dispatchEvent(new CustomEvent('cart:build' , {bubbles: true})); 
+        document.dispatchEvent(new CustomEvent('cart:refresh', {
+            bubbles: true,
+             detail: cartData
+        })); 
+   });
+   }, 400); 
     }
 </script>
