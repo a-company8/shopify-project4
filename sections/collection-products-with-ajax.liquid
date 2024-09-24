@@ -17,7 +17,13 @@
               <h3>{{ product.title }}</h3>
               <p class="product-price">{{ product.price | money }}</p>
             </a>
-            <button class="add-to-cart-btn" data-product-id="{{ product.title | handle}}">Add to Cart</button>
+            <form
+              action="/cart/add"
+              id="product_form_{{product.id}}"
+              class="shopify-product-form"
+              method="post">
+              <button class="add-to-cart-btn" data-product-id="{{ product.title | handle}}">Add to Cart</button>
+            </form>
           </div>
         {% endfor %}
       </div>

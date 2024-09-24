@@ -28,42 +28,62 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-//   //addc to cart function using Ajax
-//   //does it work?
+  //second option for adding to card
+  const addToCartForms = document.querySelectorAll('form[action= "/cart/add"]');
 
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.add-to-cart-btn').forEach(function(button){
-    button.addEventListener('click', function(event) {
+  addToCartForms.forEach((form) => {
+    form.addEventListener("submit", async (event)=> {
       event.preventDefault();
-      const productId = this.getAttribute('data-product-id');
-      console.log(productId);
-      fetch(window.Shopify.routes.root + 'products/'+productId+'.js')
-  .then(response => response.json())
-  .then(product =>{
 
-    let formData = {
-      'items': [{
-        'id': 'product.variants[0].id',
-        'quantity': 1
-      }]
-    }
-    fetch(window.Shopify.routes.root + 'cart/add.json', {
-                    method: 'POST',
-                    headers: {
-                    'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                    })
-                    .then(response => {
-                       const cartCounter = document.querySelector('.cart-count-bubble');  // Assuming this is the class of your cart counter
-                        if (cartCounter) {   cartCounter.textContent = cart.item_count;
-                        }// Update the counter with the total items in the cart
-                    return response.json();
-                    })
-                    .catch((error) => {
-                    console.error('Error:', error);
-                    });
-                  });
-              }
-  )
-  })})
+      //submit form with ajax
+      await fetch("cart/add", {
+        method: "post",
+        body: new FormData(form),
+      });
+
+      //Get new Cart object
+      const res = await fetch("/cart.json");
+      const cart = await res.json();
+      console.log(cart)
+    });
+  })
+
+// //   //addc to cart function using Ajax
+// //   //does it work?
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   document.querySelectorAll('.add-to-cart-btn').forEach(function(button){
+//     button.addEventListener('click', function(event) {
+//       event.preventDefault();
+//       const productId = this.getAttribute('data-product-id');
+//       console.log(productId);
+//       fetch(window.Shopify.routes.root + 'products/'+productId+'.js')
+//   .then(response => response.json())
+//   .then(product =>{
+
+//     let formData = {
+//       'items': [{
+//         'id': 'product.variants[0].id',
+//         'quantity': 1
+//       }]
+//     }
+//     fetch(window.Shopify.routes.root + 'cart/add.json', {
+//                     method: 'POST',
+//                     headers: {
+//                     'Content-Type': 'application/json'
+//                     },
+//                     body: JSON.stringify(formData)
+//                     })
+//                     .then(response => {
+//                        const cartCounter = document.querySelector('.cart-count-bubble');  // Assuming this is the class of your cart counter
+//                         if (cartCounter) {   cartCounter.textContent = cart.item_count;
+//                         }// Update the counter with the total items in the cart
+//                     return response.json();
+//                     })
+//                     .catch((error) => {
+//                     console.error('Error:', error);
+//                     });
+//                   });
+//               }
+//   )
+//   })})
