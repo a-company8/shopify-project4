@@ -11,9 +11,6 @@
             <h3>{{ product.title }}</h3>
             <p class="product-price">{{ product.price | money }}</p>
           </a>
-          {% javascript  %} 
-                var productId = 
-          {% endjavascript %}
           <button class="add-to-cart-btn" data-product-id="{{ product.id }}" onclick="myFunction({{product.title | handle}})" >Add to Cart</button>
           <h2>soroush</h2>
         </div>
