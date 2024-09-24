@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
       //Get new Cart object
       const res = await fetch("/cart.json");
       const cart = await res.json();
-      console.log(cart)
+      
     });
   })
 
