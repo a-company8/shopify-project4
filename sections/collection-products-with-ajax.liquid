@@ -53,7 +53,7 @@
     function myFunction(productTitle) {
         fetch(window.Shopify.routes.root + 'products/'+productTitle)
   .then(response => response.json())
-  .then(product => alert('The title of this product is ' + product.title));
+  .then(product => console.log(product);
 
     }
 </script>
