@@ -1,14 +1,19 @@
 {% layout none %}
 <!-- Products loaded via AJAX -->
-{% paginate collection.products by 4 %}  <!-- You can adjust the limit here if needed -->
+{% paginate collection.products by 4 %}
+  <!-- You can adjust the limit here if needed -->
   {% for product in collection.products %}
     <div class="product-card" data-product-id="{{ product.id }}">
       <a href="{{ product.url }}">
-        <img src="{{ product.featured_image | image_url: width: 240, height: 240 }}" alt="{{ product.title }}" width="240px" height="240px">
+        <img
+          src="{{ product.featured_image | image_url: width: 240, height: 240 }}"
+          alt="{{ product.title }}"
+          width="240px"
+          height="240px">
         <h3>{{ product.title }}</h3>
         <p class="product-price">{{ product.price | money }}</p>
       </a>
-      <button class="add-to-cart-btn" data-product-id="{{ product.title | handle}}">Add to Cart</button>
+      <button class="add-to-cart-btn" data-product-id="{{ product | handle}}">Add to Cart</button>
     </div>
   {% endfor %}
 {% endpaginate %}
